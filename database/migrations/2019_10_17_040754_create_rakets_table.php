@@ -20,8 +20,9 @@ class CreateRaketsTable extends Migration
 			$table->enum('CATEGORY',['SPEED','CONTROL','POWER']);
 			$table->enum('WEIGHT',['U','2U','3U','4U','5U','F']);
 			$table->enum('GRIP',['G3','G4','G5']);
-			$table->tinyInteger('MAX_TENSION');
+			$table->unsignedTinyInteger('MAX_TENSION');
 			$table->integer('PRICE');
+			$table->unique(['BRAND','NAME','CATEGORY','WEIGHT','GRIP','MAX_TENSION'],'uniq1');
         });
     }
 

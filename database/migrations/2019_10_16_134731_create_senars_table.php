@@ -19,13 +19,14 @@ class CreateSenarsTable extends Migration
 			$table->string('STRING_NAME',50);
 			$table->enum('STRING_CATEGORY',['DURABILITY','REPULSION_POWER','HITTING_SOUND','CONTROL']);
 			$table->enum('STRING_FEELING',['SOFT','MEDIUM','HARD']);
-			$table->float('STRING_DIAMETER',2,2);
-			$table->tinyInteger('POINT_REPULSION_POWER');
-			$table->tinyInteger('POINT_DURABILITY');
-			$table->tinyInteger('POINT_HITTING_SOUND');
-			$table->tinyInteger('POINT_SHOCK_ABSORPTION');
-			$table->tinyInteger('POINT_CONTROL');
-			$table->integer('AVERAGE_PRICE');
+			$table->unsignedDecimal('STRING_DIAMETER',2,2);
+			$table->unsignedTinyInteger('POINT_REPULSION_POWER');
+			$table->unsignedTinyInteger('POINT_DURABILITY');
+			$table->unsignedTinyInteger('POINT_HITTING_SOUND');
+			$table->unsignedTinyInteger('POINT_SHOCK_ABSORPTION');
+			$table->unsignedTinyInteger('POINT_CONTROL');
+			$table->unsignedInteger('AVERAGE_PRICE');
+			$table->unique(['STRING_BRAND','STRING_NAME','STRING_CATEGORY','STRING_FEELING','STRING_DIAMETER'],'uniq1');
         });
     }
 

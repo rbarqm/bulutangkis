@@ -14,8 +14,10 @@ class CreateBrandSenarTable extends Migration
     public function up()
     {
         Schema::create('brand_senar', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->bigIncrements('ID');
+			$table->string('BRAND',50);
+			$table->enum('ACTIVE',['Y','N']);
+			$table->unique(['BRAND']);
         });
     }
 
